@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Test Suite for Login and Logout from Demo app]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="TestCycle3(failed)">
+    <classes>
+      <class name="steps.SavingsTest">
+        <methods>
+          <include name="entercredentials"/>
+          <include name="openwebsite"/>
+        </methods>
+      </class> <!-- steps.SavingsTest -->
+    </classes>
+  </test> <!-- TestCycle3(failed) -->
+</suite> <!-- Failed suite [Test Suite for Login and Logout from Demo app] -->
