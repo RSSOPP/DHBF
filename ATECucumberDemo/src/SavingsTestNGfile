@@ -1,0 +1,67 @@
+package tests;
+
+ 
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import pagess.BankingHomePage;
+import pagess.SavingsHomePage;
+import pagess.TestBase;
+import steps.SharedSteps;
+
+public class SavingsTestNGfile extends TestBase {
+
+	
+	
+	
+	
+	
+
+	SharedSteps s;
+	BankingHomePage Bankcomponent;
+	SavingsHomePage Savingscomponent;
+
+	
+	
+	
+ 
+ 
+
+@Test(priority =1 )
+ 
+public void clicksigin() throws Throwable{
+
+	driver =new  ChromeDriver();
+	driver.manage().window().maximize();
+	driver.get("http://dbankdemo.com/bank/login");
+
+	Bankcomponent = PageFactory.initElements(driver,BankingHomePage.class);
+	Savingscomponent = PageFactory.initElements(driver,SavingsHomePage.class);
+	Bankcomponent.enterLoginDetails("oolhelll7@gmail.com","Qwerty123_");
+//	Assert.assertTrue(Bankcomponent.validate_signin(), "sign successful");
+	
+}
+@Test(priority =2)
+public void clcikingMenuIcon() throws Throwable{
+	
+
+Savingscomponent.clickthemenu();}
+
+ @Test(priority =3)
+public void  clickingsavings() throws Throwable {
+Savingscomponent.clickTheSavings();
+
+}
+ @Test(priority =4)
+public void navigationofsavings() throws Throwable {
+Savingscomponent.clickTheViewSavings();
+}
+
+ @Test(priority =5 )
+public void serachtranscations() throws Throwable{
+Savingscomponent.searchTransactionDetails();
+}
+ 	
+}
