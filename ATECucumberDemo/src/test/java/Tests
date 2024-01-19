@@ -1,1 +1,85 @@
 
+package tests;
+
+ 
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import pagess.BankingHomePage;
+import pagess.SavingsHomePage;
+import pagess.TestBase;
+import steps.SharedSteps;
+
+public class SavingsTestNGfile extends TestBase {
+
+	
+	
+	
+	
+	
+
+	SharedSteps s;
+	BankingHomePage Bankcomponent;
+	SavingsHomePage Savingscomponent;
+
+	
+	
+	
+ 
+ 
+
+@Test(priority =1 )
+ 
+public void clicksigin() throws Throwable{
+
+	driver =new  ChromeDriver();
+	driver.manage().window().maximize();
+	driver.get("http://dbankdemo.com/bank/login");
+
+	Bankcomponent = PageFactory.initElements(driver,BankingHomePage.class);
+	Savingscomponent = PageFactory.initElements(driver,SavingsHomePage.class);
+	Bankcomponent.enterLoginDetails("oolhelll7@gmail.com","Qwerty123_");
+//	Assert.assertTrue(Bankcomponent.validate_signin(), "");
+	String actualtitle= driver.getTitle();
+	String expectedTitle = "Digital Bank";
+    Assert.assertEquals(actualtitle, expectedTitle);
+}
+@Test(priority =2)
+public void clcikingMenuIcon() throws Throwable{
+	
+	Bankcomponent = PageFactory.initElements(driver,BankingHomePage.class);
+Bankcomponent.clickthemenu();
+Assert.assertFalse(Bankcomponent.validate_menu(),"Validated menu icon");
+
+
+}
+
+ @Test(priority =3)
+public void  clickingsavings() throws Throwable {
+	 Bankcomponent = PageFactory.initElements(driver,	BankingHomePage.class);
+Bankcomponent.clickTheSavings();
+Assert.assertFalse(Bankcomponent.validate_savings(),"validated  savings");
+
+
+
+}
+ @Test(priority =4)
+public void navigationofsavings() throws Throwable {
+	 Savingscomponent = PageFactory.initElements(driver,SavingsHomePage.class);
+Savingscomponent.clickTheViewSavings();
+// Assert.assertEquals(Bankcomponent.MethodforTestViewSavings(),"View Savings Accounts" );
+
+Assert.assertTrue(Bankcomponent.Validate_ViewSavings(),"validated  view  savings,test passed succesfully");
+ 
+ }
+
+ @Test(priority =5 )
+public void serachtranscations() throws Throwable{
+Savingscomponent.searchTransactionDetails();
+Assert.assertTrue(Bankcomponent.validate_serachtransaction(),"Assert success");
+ 
+ }
+ 	
+}
