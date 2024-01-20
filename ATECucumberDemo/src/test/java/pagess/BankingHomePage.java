@@ -29,7 +29,68 @@ public class BankingHomePage {
 	
 	
 	 
+@FindBy(xpath = "//input[@class='form-control form-control-sm']")
+	 static WebElement Form_fill;
 
+
+		@FindBy(xpath="//a[@class='nav-link'][normalize-space()='Create Data']")
+			    static WebElement createdata;
+			@FindBy(xpath ="//img[@alt='User Avatar']")
+	 
+			static WebElement menu;
+			 
+			 
+			@FindBy(xpath = "//a[@id='savings-menu'][@class='dropdown-toggle'][normalize-space()='Savings']")
+		    static WebElement savings;
+		
+			 
+			@FindBy(xpath = "//a[@id='view-savings-menu-item'][normalize-space()='View Savings']")
+		    static WebElement savingsView;
+			
+			@FindBy(xpath = "//input[@class='form-control form-control-sm']")
+			static WebElement SearchTransaction;
+			
+	 
+	
+	
+
+			public void clickTheCreateData() {
+			
+			
+			createdata.click();
+			}
+
+			public void clickthemenu() {
+				
+				
+				menu.click();
+			
+			
+		}
+
+			
+
+			public void clickTheSavings() {
+			
+			
+			savings.click();
+			}
+			
+			
+			
+
+			public void clickTheViewSavings() {
+			
+			
+			savingsView.click();
+			}
+		
+			
+			public void searchTransactionDetails(String u) {
+				
+				SearchTransaction.sendKeys(u);
+				
+			}
 	 
 	 
 	
@@ -72,7 +133,134 @@ public class BankingHomePage {
 	
 	}
 	 
+}
+	public boolean Validate_ViewSavings() {
+		
+//		
+//	String actualMessage=	TestViewSavings.getText();
+//	return actualMessage; 
+			
+	
+	
+	
 
+	try {
+		
+		
+		
+	    savingsView.click();
+		return savingsView.isEnabled();
+		
+	}finally
+	{
+		
+	}
+	}
+	
+	
+	
+	public static boolean MethodforSearcchTransactions() {
+		
+//		boolean actualMessage = Form_fill.equals("11111.12");
+//		return ;
+				
+
+		try {
+			
+			
+			
+		    savingsView.click();
+			return savingsView.isEnabled();
+			
+		}finally
+		{
+			
+		}
+		
+		
+		
+		
+	public boolean  validate_serachtransaction() {
+		
+//		
+
+		try {
+			
+			
+			
+		    savingsView.click();
+			return savingsView.isEnabled();
+			
+		}finally
+		{
+			
+		}
+		}
+		
+//		return Form_fill.isEnabled();
+	
+
+
+	
+	public boolean validate_username() {
+		
+		try {
+			
+			
+			
+			TxtBox_UserName.click();
+			return Form_fill.isSelected();
+			
+		}finally
+		{
+			
+		}
+//		
+//		return TxtBox_UserName.getText().isBlank();
+	}
+	
+public boolean validate_menu() {
+		
+		try {
+			
+			
+			
+		    menu.click();
+			return menu.isSelected();
+			
+		}finally
+		{
+			
+		}
+ 	}
+
+public boolean validate_savings() {
+	
+	try {
+		
+		
+		
+	    savings.click();
+		return savings.isSelected();
+		
+	}finally
+	{
+		
+	}
+	}
+
+
+	 
+	public boolean validate_password()
+	{ 
+//		return TxtBox_Password.isDisplayed();
+		return TxtBox_Password.getText().isEmpty();
+	}
+	
+	public boolean validate_signin()
+	{
+		return Btn_Login.isSelected();
+		}
 	
 	
 	 
